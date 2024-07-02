@@ -1,0 +1,426 @@
+{
+    "info": {
+      "_postman_id": "dokumen-id-unik-di-sini",
+      "name": "Dokumentasi API",
+      "description": "Dokumentasi untuk API yang telah dibuat",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Users API",
+        "item": [
+          {
+            "name": "Get All Users",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/users",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "users"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Register User",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "name",
+                    "value": "John Doe"
+                  },
+                  {
+                    "key": "email",
+                    "value": "john.doe@example.com"
+                  },
+                  {
+                    "key": "password",
+                    "value": "password123"
+                  },
+                  {
+                    "key": "image_profile",
+                    "type": "file",
+                    "src": "/path/to/image/file.jpg"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/users/register",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "users",
+                  "register"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update User",
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "name",
+                    "value": "Updated Name"
+                  },
+                  {
+                    "key": "email",
+                    "value": "updated.email@example.com"
+                  },
+                  {
+                    "key": "password",
+                    "value": "newpassword123"
+                  },
+                  {
+                    "key": "image_profile",
+                    "type": "file",
+                    "src": "/path/to/new/image/file.jpg"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/users/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "users",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete User",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/users/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "users",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "News API",
+        "item": [
+          {
+            "name": "Get All News",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/news",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "news"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get News by ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/news/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "news",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Create News",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "title",
+                    "value": "New News Title"
+                  },
+                  {
+                    "key": "category",
+                    "value": "Technology"
+                  },
+                  {
+                    "key": "content",
+                    "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  },
+                  {
+                    "key": "image_content",
+                    "type": "file",
+                    "src": "/path/to/news/image/file.jpg"
+                  },
+                  {
+                    "key": "created_by",
+                    "value": "Admin"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/news",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "news"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update News",
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "title",
+                    "value": "Updated News Title"
+                  },
+                  {
+                    "key": "category",
+                    "value": "Updated Category"
+                  },
+                  {
+                    "key": "content",
+                    "value": "Updated content for the news."
+                  },
+                  {
+                    "key": "image_content",
+                    "type": "file",
+                    "src": "/path/to/updated/news/image/file.jpg"
+                  },
+                  {
+                    "key": "created_by",
+                    "value": "Updated Admin"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/news/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "news",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete News",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/news/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "news",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Categories API",
+        "item": [
+          {
+            "name": "Get All Categories",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/categories",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "categories"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Create Category",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "title",
+                    "value": "New Category Title"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/categories",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "categories"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Category",
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "title",
+                    "value": "Updated Category Title"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/categories/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "categories",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Category",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "body": {},
+              "url": {
+                "raw": "{{base_url}}/api/categories/1",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "categories",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Authentication API",
+        "item": [
+          {
+            "name": "Login",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "email",
+                    "value": "john.doe@example.com"
+                  },
+                  {
+                    "key": "password",
+                    "value": "password123"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "{{base_url}}/api/auth/login",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "api",
+                  "auth",
+                  "login"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  
