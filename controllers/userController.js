@@ -163,7 +163,7 @@ const loginUserHandler = async (req, res) => {
     }
 
     // Generate token JWT
-    const token = jwt.sign({ userId: user.id, email: user.email }, secretKey, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user.id, email: user.email }, secretKey, { expiresIn: '24h' });
     const userWithoutPassword = { ...user.toJSON(), password: undefined };
     // Kirim token sebagai respons
     res.json({ user: userWithoutPassword, token });
