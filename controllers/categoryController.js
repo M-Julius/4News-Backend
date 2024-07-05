@@ -1,13 +1,19 @@
+const { Op } = require('sequelize');
 const { Category } = require('../models');
 
 // Get all categories
 const getAllCategories = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query; // Default to page 1, limit 10 if not provided
+  const { page = 1, limit = 10, keyword = '' } = req.query; // Default to page 1, limit 10 if not provided
 
   try {
     const offset = (page - 1) * limit;
 
     const { count, rows } = await Category.findAndCountAll({
+      where: {
+        title: {
+          [Op.like]: `%${keyword}%`
+        }
+      },
       offset: parseInt(offset),
       limit: parseInt(limit)
     });

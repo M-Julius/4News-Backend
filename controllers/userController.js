@@ -3,7 +3,8 @@ const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { secretKey } = require('../config/config.json'); // Pastikan Anda memiliki konfigurasi secretKey
+const { secretKey } = require('../config/config.json');
+const { Op } = require('sequelize');
 
 
 // Multer setup for image upload
@@ -19,12 +20,26 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const getAllUsers = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query; // Default to page 1, limit 10 if not provided
+  const { page = 1, limit = 10, keyword = '' } = req.query;
 
   try {
     const offset = (page - 1) * limit;
 
     const { count, rows } = await User.findAndCountAll({
+      where: {
+        [Op.or]: [
+          {
+            name: {
+              [Op.like]: `%${keyword}%`
+            }
+          },
+          {
+            email: {
+              [Op.like]: `%${keyword}%`
+            }
+          }
+        ]
+      },
       offset: parseInt(offset),
       limit: parseInt(limit)
     });
@@ -61,11 +76,7 @@ const getUserById = async (req, res) => {
 const registerUser = upload.single('image_profile'); // 'image_profile' is the field name in your form
 const registerUserHandler = async (req, res) => {
   const { name, email, password, role } = req.body;
-  let image_profile = ""
-
-  if(req?.file?.image_profile) {
-    image_profile = req?.file?.filename; // Multer adds 'file' object to 'req' containing uploaded file details
-  }
+  const image_profile = req?.file ? req?.file?.filename : undefined; 
 
   try {
     const existingUser = await User.findOne({ where: { email } });

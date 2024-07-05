@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const sequelize = require('./config/database'); // Pastikan path sesuai dengan struktur direktori Anda
+
+const sequelize = require('./config/database');
 const authRoutes = require('./routes/authRoutes');
 const newsRoutes = require('./routes/newsRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -15,10 +16,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Middleware untuk handling file upload
-const upload = require('./middleware/upload'); // Sesuaikan path sesuai struktur direktori Anda
 const authenticateJWT = require('./middleware/authenticateJWT');
-app.use('/uploads', express.static('uploads')); // Serve static files (uploads)
+app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/api/auth', authRoutes)
@@ -32,13 +31,10 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-// Inisialisasi koneksi ke database Sequelize
 sequelize
   .authenticate()
   .then(() => {
     console.log('Database connected');
-    // Sync models with database (jika diperlukan)
-    // sequelize.sync();
   })
   .catch((err) => console.error('Database connection error:', err));
 
